@@ -13,4 +13,49 @@ html {
 body {
   width: 100%;
   height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardInfoContainer {
+  width: 90%;
+  max-width: 600px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  bottom: 1rem;
+  border: 2px solid;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+}
+
+.inputDiv {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+.inputDiv > input {
+  outline: none;
+  padding: 0.25rem;
+  font-size: 1rem;
+}
+
+.nextBtn {
+  padding: 0.5rem 2rem;
+  background-color: rgb(0, 38, 255);
+  outline: none;
+  cursor: pointer;
+  border: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+  border-radius: 0.25rem;
+  margin: 1rem 0rem;
+  color: #fafafa;
 }
