@@ -52,26 +52,108 @@ const mesh = new THREE.Mesh(geometry, materials);
 mesh.scale.set(6.5, 6.5, 6.5);
 scene.add(mesh);
 
-let fullname;
 const loader = new THREE.FontLoader();
-loader.load("./font.json", function (font) {
-  const geometry2 = new THREE.TextGeometry("YOUR FULL NAME", {
-    font: font,
-    size: 3,
-    height: 0.5,
-    curveSegments: 21,
-    bevelEnabled: false,
-    bevelThickness: 1,
-    bevelSize: 1,
-    bevelOffset: 0,
-    bevelSegments: 10,
+let current;
+function createName(name = "YOUR NAME HERE") {
+  if (current) {
+    scene.remove(current);
+  }
+  loader.load("./font.json", function (font) {
+    const geometry2 = new THREE.TextGeometry(name, {
+      font: font,
+      size: 3,
+      height: 0.5,
+      curveSegments: 21,
+      bevelEnabled: false,
+      bevelThickness: 1,
+      bevelSize: 1,
+      bevelOffset: 0,
+      bevelSegments: 10,
+    });
+    const materials2 = new THREE.MeshBasicMaterial({ color: 0xfafafa });
+    const mesh = new THREE.Mesh(geometry2, materials2);
+    mesh.position.set(-30, -15, 1.5);
+    current = mesh;
+    scene.add(current);
   });
-  const materials2 = new THREE.MeshBasicMaterial({ color: 0xfafafa });
-  fullname = new THREE.Mesh(geometry2, materials2);
-  fullname.position.set(-30, -15, 1.5);
-  scene.add(fullname);
-  console.log(fullname);
-});
+}
+createName();
+
+let prevNum;
+function createNumber(number = "") {
+  if (prevNum) {
+    scene.remove(prevNum);
+  }
+  loader.load("./font.json", function (font) {
+    const geometry2 = new THREE.TextGeometry(number, {
+      font: font,
+      size: 3,
+      height: 0.5,
+      curveSegments: 21,
+      bevelEnabled: false,
+      bevelThickness: 1,
+      bevelSize: 1,
+      bevelOffset: 0,
+      bevelSegments: 10,
+    });
+    const materials2 = new THREE.MeshBasicMaterial({ color: 0xfafafa });
+    const mesh = new THREE.Mesh(geometry2, materials2);
+    mesh.position.set(-30, -5, 1.5);
+    prevNum = mesh;
+    scene.add(prevNum);
+  });
+}
+
+let prevExp;
+function createDate(date = "12/12") {
+  if (prevExp) {
+    scene.remove(prevExp);
+  }
+  loader.load("./font.json", function (font) {
+    const geometry2 = new THREE.TextGeometry(date, {
+      font: font,
+      size: 3,
+      height: 0.5,
+      curveSegments: 21,
+      bevelEnabled: false,
+      bevelThickness: 1,
+      bevelSize: 1,
+      bevelOffset: 0,
+      bevelSegments: 10,
+    });
+    const materials2 = new THREE.MeshBasicMaterial({ color: 0xfafafa });
+    const mesh = new THREE.Mesh(geometry2, materials2);
+    mesh.position.set(15, -15, 1.5);
+    prevExp = mesh;
+    scene.add(prevExp);
+  });
+}
+
+let prevCvv;
+function createCvv(date = "736") {
+  if (prevCvv) {
+    scene.remove(prevCvv);
+  }
+  loader.load("./font.json", function (font) {
+    const geometry2 = new THREE.TextGeometry(date, {
+      font: font,
+      size: 3,
+      height: 0.5,
+      curveSegments: 21,
+      bevelEnabled: false,
+      bevelThickness: 1,
+      bevelSize: 1,
+      bevelOffset: 0,
+      bevelSegments: 10,
+    });
+    const materials2 = new THREE.MeshBasicMaterial({ color: 0xfafafa });
+    const mesh = new THREE.Mesh(geometry2, materials2);
+    mesh.position.set(-15, -15, -1.5);
+    mesh.rotateY(Math.PI);
+    prevCvv = mesh;
+    scene.add(prevCvv);
+  });
+}
 
 //RENDER LOOP
 requestAnimationFrame(render);
@@ -93,19 +175,22 @@ window.addEventListener(
 );
 
 // Event Listeners
-document.getElementById("name").addEventListener("keypress", (e) => {
+document.getElementById("name").addEventListener("keyup", (e) => {
   // Change Card Name Model
-  scene.remove(fullname);
-  let aux = fullname;
-  aux.geometry.parameters.text = "DSDSD";
-  console.log(aux.geometry.parameters.text);
-  scene.add(aux);
+  createName(e.target.value);
 });
 
-document.getElementById("number").addEventListener("keypress", (e) => {
+document.getElementById("number").addEventListener("keyup", (e) => {
   // Change Card number Model
+  createNumber(e.target.value);
 });
 
-document.getElementById("expiration").addEventListener("keypress", (e) => {
+document.getElementById("expiration").addEventListener("keyup", (e) => {
   // Change Card Expiration Model
+  createDate(e.target.value);
+});
+
+document.getElementById("cvv").addEventListener("keyup", (e) => {
+  // Change Card Expiration Model
+  createCvv(e.target.value);
 });

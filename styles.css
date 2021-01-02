@@ -32,6 +32,8 @@ body {
   border: 2px solid;
   padding: 1rem 2rem;
   border-radius: 0.5rem;
+  color: #fafafa;
+  font-weight: 500;
 }
 
 .inputDiv {
