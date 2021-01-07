@@ -23,33 +23,43 @@
     <canvas id="canvas"></canvas>
     <div class="cardInfoContainer">
       <h3>Card Info</h3>
-      <div class="inputDiv">
-        <label for="Name">Name:</label>
-        <input type="text" name="Name" id="name" placeholder="Your Full Name" />
+      <div class="content">
+        <div class="inputDiv">
+          <label for="Name">Name:</label>
+          <input
+            type="text"
+            name="Name"
+            id="name"
+            placeholder="Your Full Name"
+          />
+        </div>
+        <div class="inputDiv">
+          <label for="number">Card Number:</label>
+          <input
+            type="text"
+            name="number"
+            id="number"
+            placeholder="0000 0000 0000 0000"
+          />
+        </div>
+        <div class="inputDiv">
+          <label for="expiration">Expiration Date:</label>
+          <input
+            type="text"
+            name="expiration"
+            id="expiration"
+            placeholder="12/12"
+          />
+        </div>
+        <div class="inputDiv">
+          <label for="expiration">CVV:</label>
+          <input type="text" name="cvv" id="cvv" placeholder="736" />
+        </div>
+        <button id="next" class="nextBtn">Next</button>
       </div>
-      <div class="inputDiv">
-        <label for="number">Card Number:</label>
-        <input
-          type="text"
-          name="number"
-          id="number"
-          placeholder="0000 0000 0000 0000"
-        />
-      </div>
-      <div class="inputDiv">
-        <label for="expiration">Expiration Date:</label>
-        <input
-          type="text"
-          name="expiration"
-          id="expiration"
-          placeholder="12/12"
-        />
-      </div>
-      <div class="inputDiv">
-        <label for="expiration">CVV:</label>
-        <input type="text" name="cvv" id="cvv" placeholder="736" />
-      </div>
-      <button id="next" class="nextBtn">Next</button>
     </div>
+    <a href="https://github.com/lnardon/3DCreditCard" id="github">
+      <img src="./github.png" alt="github" />
+    </a>
   </body>
 </html>

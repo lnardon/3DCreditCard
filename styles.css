@@ -15,7 +15,6 @@ body {
   height: 100%;
   position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #131313;
@@ -23,22 +22,40 @@ body {
 
 #canvas {
   position: relative;
+  width: 50%;
+  outline: none;
+}
+
+#github {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+}
+
+#github > img {
+  width: 225px;
 }
 
 .cardInfoContainer {
-  width: 90%;
-  max-width: 600px;
-  position: absolute;
+  width: 50%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   bottom: 1rem;
-  border: 2px solid;
   padding: 1rem 2rem;
-  border-radius: 0.5rem;
-  color: #fafafa;
+  color: #131313;
   font-weight: 500;
+  background-color: #fafafa;
+}
+
+.content {
+  width: 100%;
+  max-width: 400px;
+  border: 2px solid #131313;
+  border-radius: 0.5rem;
+  padding: 2rem;
 }
 
 .inputDiv {

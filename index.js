@@ -14,11 +14,11 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setClearColor(0x131313);
 renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(window.innerWidth / 2, window.innerHeight);
 
 //CAMERA
 const camera = new THREE.PerspectiveCamera(
-  70,
+  55,
   window.innerWidth / window.innerHeight,
   0.1,
   3000
@@ -27,6 +27,8 @@ camera.position.z = 100;
 
 // CONTROLS
 const controls = new OrbitControls(camera, renderer.domElement);
+controls.autoRotate = true;
+controls.autoRotateSpeed = 7;
 
 //LIGHTS
 const spotLight = new THREE.SpotLight(0xffffff);
