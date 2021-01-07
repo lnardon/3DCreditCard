@@ -29,36 +29,47 @@ camera.position.z = 100;
 const controls = new OrbitControls(camera, renderer.domElement);
 
 //LIGHTS
-const pointLight = new THREE.PointLight(0xffffff, 1);
-pointLight.position.set(0, 20, 50);
-scene.add(pointLight);
+const spotLight = new THREE.SpotLight(0xffffff);
+spotLight.position.set(0, 30, 20);
+spotLight.castShadow = true;
+spotLight.shadow.mapSize.width = 1024;
+spotLight.shadow.mapSize.height = 1024;
+spotLight.shadow.camera.near = 500;
+spotLight.shadow.camera.far = 4000;
+spotLight.shadow.camera.fov = 70;
+scene.add(spotLight);
+const spotLight2 = new THREE.SpotLight(0xffffff);
+spotLight2.position.set(0, 30, -20);
+spotLight2.castShadow = true;
+spotLight2.shadow.mapSize.width = 1024;
+spotLight2.shadow.mapSize.height = 1024;
+spotLight2.shadow.camera.near = 500;
+spotLight2.shadow.camera.far = 4000;
+spotLight2.shadow.camera.fov = 70;
+scene.add(spotLight2);
 
-//OBJECT
-// const loader = new OBJLoader();
-// const mtlLoader = new MTLLoader();
-// let card;
-// mtlLoader.load("./card.mtl", (materials) => {
-//   materials.preload();
-//   loader.setMaterials(materials);
-//   loader.load("./card.obj", (object) => {
-//     card = object;
-//     scene.add(card);
-//   });
-// });
+// OBJECT
+const loader = new OBJLoader();
+const mtlLoader = new MTLLoader();
+let card;
+mtlLoader.load("./card.mtl", (materials) => {
+  materials.preload();
+  loader.setMaterials(materials);
+  loader.load("./card.obj", (object) => {
+    card = object;
+    card.rotateX(Math.PI / 2);
+    card.scale.set(13, 13, 13);
+    scene.add(card);
+  });
+});
 
-const geometry = new THREE.BoxGeometry(10, 6, 0.4);
-const materials = new THREE.MeshNormalMaterial({ color: 0x8c43e6 });
-const mesh = new THREE.Mesh(geometry, materials);
-mesh.scale.set(6.5, 6.5, 6.5);
-scene.add(mesh);
-
-const loader = new THREE.FontLoader();
+const floader = new THREE.FontLoader();
 let current;
 function createName(name = "YOUR NAME HERE") {
   if (current) {
     scene.remove(current);
   }
-  loader.load("./font.json", function (font) {
+  floader.load("./font.json", function (font) {
     const geometry2 = new THREE.TextGeometry(name, {
       font: font,
       size: 3,
@@ -72,7 +83,7 @@ function createName(name = "YOUR NAME HERE") {
     });
     const materials2 = new THREE.MeshBasicMaterial({ color: 0xfafafa });
     const mesh = new THREE.Mesh(geometry2, materials2);
-    mesh.position.set(-30, -15, 1.5);
+    mesh.position.set(-30, -15, 1);
     current = mesh;
     scene.add(current);
   });
@@ -84,7 +95,7 @@ function createNumber(number = "") {
   if (prevNum) {
     scene.remove(prevNum);
   }
-  loader.load("./font.json", function (font) {
+  floader.load("./font.json", function (font) {
     const geometry2 = new THREE.TextGeometry(number, {
       font: font,
       size: 3,
@@ -98,7 +109,7 @@ function createNumber(number = "") {
     });
     const materials2 = new THREE.MeshBasicMaterial({ color: 0xfafafa });
     const mesh = new THREE.Mesh(geometry2, materials2);
-    mesh.position.set(-30, -5, 1.5);
+    mesh.position.set(-30, -5, 1);
     prevNum = mesh;
     scene.add(prevNum);
   });
@@ -109,7 +120,7 @@ function createDate(date = "12/12") {
   if (prevExp) {
     scene.remove(prevExp);
   }
-  loader.load("./font.json", function (font) {
+  floader.load("./font.json", function (font) {
     const geometry2 = new THREE.TextGeometry(date, {
       font: font,
       size: 3,
@@ -123,7 +134,7 @@ function createDate(date = "12/12") {
     });
     const materials2 = new THREE.MeshBasicMaterial({ color: 0xfafafa });
     const mesh = new THREE.Mesh(geometry2, materials2);
-    mesh.position.set(15, -15, 1.5);
+    mesh.position.set(15, -15, 1);
     prevExp = mesh;
     scene.add(prevExp);
   });
@@ -134,7 +145,7 @@ function createCvv(date = "736") {
   if (prevCvv) {
     scene.remove(prevCvv);
   }
-  loader.load("./font.json", function (font) {
+  floader.load("./font.json", function (font) {
     const geometry2 = new THREE.TextGeometry(date, {
       font: font,
       size: 3,
@@ -148,7 +159,7 @@ function createCvv(date = "736") {
     });
     const materials2 = new THREE.MeshBasicMaterial({ color: 0xfafafa });
     const mesh = new THREE.Mesh(geometry2, materials2);
-    mesh.position.set(-15, -15, -1.5);
+    mesh.position.set(-15, -15, -1);
     mesh.rotateY(Math.PI);
     prevCvv = mesh;
     scene.add(prevCvv);
@@ -157,7 +168,6 @@ function createCvv(date = "736") {
 
 //RENDER LOOP
 requestAnimationFrame(render);
-
 function render() {
   controls.update();
   renderer.render(scene, camera);
