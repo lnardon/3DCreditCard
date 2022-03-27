@@ -11,13 +11,13 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
-    <link
-      rel="shortcut icon"
-      href="https://www.flaticon.com/svg/static/icons/svg/2922/2922888.svg"
-      type="image/x-icon"
-    />
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
     <script type="module" defer src="./index.js"></script>
-    <title>Credit Card Registration</title>
+    <title>3D Credit Card</title>
+    <meta
+      name="description"
+      content="Custom 3D credit card render using Three.js"
+    />
   </head>
   <body>
     <canvas id="canvas"></canvas>
@@ -55,11 +55,23 @@
           <label for="expiration">CVV:</label>
           <input type="text" name="cvv" id="cvv" placeholder="736" />
         </div>
-        <button id="next" class="nextBtn">Next</button>
+        <div class="inputDiv">
+          <label for="expiration">Card Type:</label>
+          <select name="cardType" id="">
+            <option value="gold">Stardand</option>
+            <option value="members">Members</option>
+            <option value="vip">VIP</option>
+          </select>
+        </div>
+        <div class="inputDiv">
+          <input type="color" name="color" id="colorPicker" />
+        </div>
+        <button id="confirm" class="nextBtn">Next</button>
       </div>
     </div>
-    <a href="https://github.com/lnardon/3DCreditCard" id="github">
+    <button class="openModalBtn">Edit Card Info</button>
+    <!-- <a href="https://github.com/lnardon/3DCreditCard" id="github">
       <img src="./github.png" alt="github" />
-    </a>
+    </a> -->
   </body>
 </html>

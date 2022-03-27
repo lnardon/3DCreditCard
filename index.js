@@ -14,7 +14,7 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setClearColor(0x131313);
 renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(window.innerWidth / 2, window.innerHeight);
+renderer.setSize(window.innerWidth, window.innerHeight);
 
 //CAMERA
 const camera = new THREE.PerspectiveCamera(
@@ -23,11 +23,11 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   3000
 );
-camera.position.z = 100;
+camera.position.z = 150;
 
 // CONTROLS
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.autoRotate = true;
+// controls.autoRotate = true;
 controls.autoRotateSpeed = 7;
 
 //LIGHTS
@@ -64,6 +64,23 @@ mtlLoader.load("./card.mtl", (materials) => {
     scene.add(card);
   });
 });
+
+function selectColor(e) {
+  console.log(e.target.value);
+}
+
+function toggleModal() {
+  let cardInfoContainerRef =
+    document.getElementsByClassName("cardInfoContainer")[0];
+  let openModalBtnRef = document.getElementsByClassName("openModalBtn")[0];
+  if (openModalBtnRef.style.display === "none") {
+    cardInfoContainerRef.style.display = "none";
+    openModalBtnRef.style.display = "flex";
+  } else {
+    cardInfoContainerRef.style.display = "flex";
+    openModalBtnRef.style.display = "none";
+  }
+}
 
 const floader = new THREE.FontLoader();
 let current;
@@ -206,3 +223,11 @@ document.getElementById("cvv").addEventListener("keyup", (e) => {
   // Change Card Expiration Model
   createCvv(e.target.value);
 });
+
+document.getElementById("colorPicker").addEventListener("change", selectColor);
+
+document.getElementById("confirm").addEventListener("click", toggleModal);
+
+document
+  .getElementsByClassName("openModalBtn")[0]
+  .addEventListener("click", toggleModal);

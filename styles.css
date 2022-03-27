@@ -36,18 +36,30 @@ body {
   width: 225px;
 }
 
-.cardInfoContainer {
-  width: 50%;
-  height: 100%;
+.openModalBtn {
+  position: absolute;
+  bottom: 2rem;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
   display: flex;
+}
+
+.cardInfoContainer {
+  position: absolute;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  bottom: 1rem;
-  padding: 1rem 2rem;
+  bottom: 0rem;
+  margin: 0rem 2rem;
   color: #131313;
   font-weight: 500;
-  background-color: #fafafa;
+  width: 100%;
+  top: 0%;
+  background-color: rgba(0, 0, 0, 0.65);
 }
 
 .content {
@@ -56,6 +68,7 @@ body {
   border: 2px solid #131313;
   border-radius: 0.5rem;
   padding: 2rem;
+  background-color: #fafafa;
 }
 
 .inputDiv {
