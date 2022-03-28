@@ -204,22 +204,22 @@ window.addEventListener(
 );
 
 // Event Listeners
-document.getElementById("name").addEventListener("keyup", (e) => {
+document.getElementById("name").addEventListener("change", (e) => {
   // Change Card Name Model
   createName(e.target.value);
 });
 
-document.getElementById("number").addEventListener("keyup", (e) => {
+document.getElementById("number").addEventListener("change", (e) => {
   // Change Card number Model
   createNumber(e.target.value);
 });
 
-document.getElementById("expiration").addEventListener("keyup", (e) => {
+document.getElementById("expiration").addEventListener("change", (e) => {
   // Change Card Expiration Model
   createDate(e.target.value);
 });
 
-document.getElementById("cvv").addEventListener("keyup", (e) => {
+document.getElementById("cvv").addEventListener("change", (e) => {
   // Change Card Expiration Model
   createCvv(e.target.value);
 });

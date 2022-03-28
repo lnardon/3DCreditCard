@@ -38,7 +38,7 @@ body {
 
 .openModalBtn {
   position: absolute;
-  bottom: 2rem;
+  bottom: 15vh;
   padding: 1rem 2rem;
   font-size: 1rem;
   font-weight: bold;
@@ -63,6 +63,10 @@ body {
 }
 
 .content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   width: 100%;
   max-width: 400px;
   border: 2px solid #131313;
