@@ -12,7 +12,7 @@ const renderer = new THREE.WebGLRenderer({
   canvas: document.getElementById("canvas"),
   antialias: true,
 });
-renderer.setClearColor(0x131313);
+renderer.setClearColor(0xfdfecd);
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 
@@ -65,10 +65,17 @@ mtlLoader.load("./card.mtl", (materials) => {
   });
 });
 
-function selectColor(e) {
+function selectCardColor(e) {
   card.children[0].material = new THREE.MeshPhongMaterial({
     color: e.target.value,
   });
+}
+
+function selectTextColor(e) {
+  current.material = new THREE.MeshBasicMaterial({ color: e.target.value });
+  prevNum.material = new THREE.MeshBasicMaterial({ color: e.target.value });
+  prevExp.material = new THREE.MeshBasicMaterial({ color: e.target.value });
+  prevCvv.material = new THREE.MeshBasicMaterial({ color: e.target.value });
 }
 
 function toggleModal() {
@@ -226,7 +233,13 @@ document.getElementById("cvv").addEventListener("change", (e) => {
   createCvv(e.target.value);
 });
 
-document.getElementById("colorPicker").addEventListener("change", selectColor);
+document
+  .getElementById("colorPicker")
+  .addEventListener("change", selectCardColor);
+
+document
+  .getElementById("textColorPicker")
+  .addEventListener("change", selectTextColor);
 
 document.getElementById("confirm").addEventListener("click", toggleModal);
 
