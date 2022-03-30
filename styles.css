@@ -38,13 +38,26 @@ body {
 
 .openModalBtn {
   position: absolute;
-  bottom: 15vh;
   padding: 1rem 2rem;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
   outline: none;
   display: flex;
+  animation: popUp 0.6s ease forwards;
+  transition: all 0.3s ease;
+  outline: none;
+  border: 3px solid white;
+  border-radius: 0.25rem;
+  background-color: rgb(137, 5, 231);
+  font-size: 1.25rem;
+  font-weight: bold;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+  color: #fafafa;
+}
+
+.openModalBtn:hover {
+  transform: scale(1.1);
 }
 
 .cardInfoContainer {
@@ -90,7 +103,7 @@ body {
 
 .nextBtn {
   padding: 0.5rem 2rem;
-  background-color: rgb(0, 38, 255);
+  background-color: rgb(137, 5, 231);
   outline: none;
   cursor: pointer;
   border: none;
@@ -99,4 +112,13 @@ body {
   border-radius: 0.25rem;
   margin: 1rem 0rem;
   color: #fafafa;
+}
+
+@keyframes popUp {
+  from {
+    bottom: 0vh;
+  }
+  to {
+    bottom: 13vh;
+  }
 }
