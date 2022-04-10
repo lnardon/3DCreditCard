@@ -20,12 +20,14 @@
     />
   </head>
   <body>
+    <img src="./loader.svg" id="loader" alt="Loader icon" />
     <canvas id="canvas"></canvas>
     <div class="cardInfoContainer">
       <div class="content">
         <div class="inputDiv">
-          <label for="Name">Name:</label>
+          <label class="label" for="Name">Name:</label>
           <input
+            class="inputField"
             type="text"
             name="Name"
             id="name"
@@ -33,8 +35,9 @@
           />
         </div>
         <div class="inputDiv">
-          <label for="number">Card Number:</label>
+          <label class="label" for="number">Card Number:</label>
           <input
+            class="inputField"
             type="text"
             name="number"
             id="number"
@@ -42,8 +45,9 @@
           />
         </div>
         <div class="inputDiv">
-          <label for="expiration">Expiration Date:</label>
+          <label class="label" for="expiration">Expiration Date:</label>
           <input
+            class="inputField"
             type="text"
             name="expiration"
             id="expiration"
@@ -51,26 +55,35 @@
           />
         </div>
         <div class="inputDiv">
-          <label for="expiration">CVV:</label>
-          <input type="text" name="cvv" id="cvv" placeholder="736" />
+          <label class="label" for="expiration">CVV:</label>
+          <input
+            class="inputField"
+            class="inputField"
+            type="text"
+            name="cvv"
+            id="cvv"
+            placeholder="736"
+          />
         </div>
-        <div class="inputDiv">
-          <label for="expiration">Card Type:</label>
-          <select name="cardType" id="">
-            <option value="gold">Stardand</option>
-            <option value="members">Members</option>
-            <option value="vip">VIP</option>
-          </select>
+        <div class="inputDiv colorDiv">
+          <label class="label" for="colorPicker">Card color:</label>
+          <input
+            class="colorPicker"
+            type="color"
+            name="color"
+            id="colorPicker"
+          />
         </div>
-        <div class="inputDiv">
-          <label for="colorPicker">Card color:</label>
-          <input type="color" name="color" id="colorPicker" />
+        <div class="inputDiv colorDiv">
+          <label class="label" for="textColorPicker">Text color:</label>
+          <input
+            class="colorPicker"
+            type="color"
+            name="textColorPicker"
+            id="textColorPicker"
+          />
         </div>
-        <div class="inputDiv">
-          <label for="textColorPicker">Text color:</label>
-          <input type="color" name="textColorPicker" id="textColorPicker" />
-        </div>
-        <button id="confirm" class="nextBtn">Confirm</button>
+        <button id="confirm" class="confirmBtn">Confirm</button>
       </div>
     </div>
     <button class="openModalBtn">Edit Card</button>

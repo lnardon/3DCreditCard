@@ -65,6 +65,27 @@ mtlLoader.load("./card.mtl", (materials) => {
   });
 });
 
+// LOAD MANAGER
+// Load Manager
+const manager = new THREE.LoadingManager();
+manager.onStart = (url, itemsLoaded, itemsTotal) => {
+  document.getElementById("loader").style.display = "flex";
+};
+
+manager.onProgress = (url, itemsLoaded, itemsTotal) => {
+  document.getElementById(
+    "progressLoading"
+  ).innerText = `Loading Files ... ${itemsLoaded}/${itemsTotal}`;
+};
+
+manager.onLoad = () => {
+  document.getElementById("loader").style.display = "none";
+};
+
+manager.onError = function (url) {
+  alert("There was an error loading " + url);
+};
+
 function selectCardColor(e) {
   card.children[0].material = new THREE.MeshPhongMaterial({
     color: e.target.value,

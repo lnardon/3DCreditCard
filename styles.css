@@ -20,6 +20,12 @@ body {
   background-color: #131313;
 }
 
+#loader {
+  position: absolute;
+  z-index: 1000;
+  display: none;
+}
+
 #canvas {
   position: relative;
   width: 50%;
@@ -57,7 +63,7 @@ body {
 }
 
 .openModalBtn:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .cardInfoContainer {
@@ -92,16 +98,40 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-.inputDiv > input {
+.label {
+  font-size: 1.25rem;
+  font-weight: 600;
+  /* border-left: 2px solid black;
+  border-top: 2px solid black;
+  border-right: 2px solid black; */
+}
+
+.inputField {
+  background: none;
+  border: none;
+  border-bottom: 2px solid rgb(50, 50, 50);
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
   outline: none;
-  padding: 0.25rem;
-  font-size: 1rem;
 }
 
-.nextBtn {
+.colorDiv {
+  width: 100%;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.colorPicker {
+  cursor: pointer;
+  padding: 0rem;
+  border: none;
+}
+
+.confirmBtn {
   padding: 0.5rem 2rem;
   background-color: rgb(137, 5, 231);
   outline: none;
@@ -112,6 +142,11 @@ body {
   border-radius: 0.25rem;
   margin: 1rem 0rem;
   color: #fafafa;
+  transition: all 0.3s ease;
+}
+
+.confirmBtn:hover {
+  transform: scale(1.1);
 }
 
 @keyframes popUp {
@@ -119,6 +154,6 @@ body {
     bottom: 0vh;
   }
   to {
-    bottom: 13vh;
+    bottom: 11vh;
   }
 }
