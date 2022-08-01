@@ -32,19 +32,9 @@ body {
   outline: none;
 }
 
-#github {
-  position: absolute;
-  bottom: 1rem;
-  left: 1rem;
-}
-
-#github > img {
-  width: 225px;
-}
-
 .openModalBtn {
   position: absolute;
-  padding: 1rem 2rem;
+  padding: 0.75rem 1.5rem;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
@@ -53,17 +43,17 @@ body {
   animation: popUp 0.6s ease forwards;
   transition: all 0.3s ease;
   outline: none;
-  border: 3px solid white;
+  border: none;
   border-radius: 0.25rem;
-  background-color: rgb(137, 5, 231);
+  background-color: rgb(25, 7, 225);
   font-size: 1.25rem;
   font-weight: bold;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 13px 2px rgba(255, 255, 255, 0.1);
   color: #fafafa;
 }
 
 .openModalBtn:hover {
-  transform: scale(1.05);
+  transform: scale(1.07);
 }
 
 .cardInfoContainer {
@@ -88,35 +78,45 @@ body {
   flex-direction: column;
   width: 100%;
   max-width: 400px;
-  border: 2px solid #131313;
-  border-radius: 0.5rem;
-  padding: 2rem;
+  border-radius: 0.25rem;
+  padding: 2.5rem;
   background-color: #fafafa;
+}
+
+.title {
+  margin-bottom: 1rem;
+  color: #131313;
+  font-size: 2rem;
+  font-weight: 500;
+  border-bottom: 1px solid rgb(18, 18, 18);
 }
 
 .inputDiv {
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .label {
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.name {
   font-size: 1.25rem;
-  font-weight: 600;
-  /* border-left: 2px solid black;
-  border-top: 2px solid black;
-  border-right: 2px solid black; */
+  font-weight: 500;
 }
 
 .inputField {
   background: none;
   border: none;
-  border-bottom: 2px solid rgb(50, 50, 50);
-  font-size: 0.75rem;
+  border: 1px solid rgb(50, 50, 50);
+  font-size: 1rem;
   font-weight: 500;
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem 0.5rem;
   outline: none;
+  border-radius: 0.125rem;
 }
 
 .colorDiv {
@@ -131,9 +131,14 @@ body {
   border: none;
 }
 
+.rotateCard {
+  width: 20px;
+  cursor: pointer;
+}
+
 .confirmBtn {
   padding: 0.5rem 2rem;
-  background-color: rgb(137, 5, 231);
+  background-color: rgb(25, 7, 225);
   outline: none;
   cursor: pointer;
   border: none;

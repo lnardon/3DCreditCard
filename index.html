@@ -24,6 +24,7 @@
     <canvas id="canvas"></canvas>
     <div class="cardInfoContainer">
       <div class="content">
+        <h2 class="title">Card Settings</h2>
         <div class="inputDiv">
           <label class="label" for="Name">Name:</label>
           <input
@@ -66,7 +67,7 @@
           />
         </div>
         <div class="inputDiv colorDiv">
-          <label class="label" for="colorPicker">Card color:</label>
+          <label class="label name" for="colorPicker">Card color:</label>
           <input
             class="colorPicker"
             type="color"
@@ -76,7 +77,7 @@
           />
         </div>
         <div class="inputDiv colorDiv">
-          <label class="label" for="textColorPicker">Text color:</label>
+          <label class="label name" for="textColorPicker">Text color:</label>
           <input
             class="colorPicker"
             type="color"
@@ -86,16 +87,16 @@
           />
         </div>
         <div class="inputDiv colorDiv">
-          <label class="label" for="textColorPicker">Rotate Card:</label>
+          <label class="label name" for="textColorPicker">Rotate Card:</label>
           <input
-            class="roteteCard"
+            class="rotateCard"
             type="checkbox"
-            name="roteteCard"
-            id="roteteCard"
-            value="true"
+            name="rotateCard"
+            id="rotateCard"
+            checked
           />
         </div>
-        <button id="confirm" class="confirmBtn">Confirm</button>
+        <button id="confirm" class="confirmBtn">Close</button>
       </div>
     </div>
     <button class="openModalBtn">Edit Card</button>

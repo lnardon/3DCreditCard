@@ -12,7 +12,7 @@ const renderer = new THREE.WebGLRenderer({
   canvas: document.getElementById("canvas"),
   antialias: true,
 });
-renderer.setClearColor(0xfdfecd);
+renderer.setClearColor(0x131313);
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 
@@ -102,7 +102,7 @@ function selectTextColor(e) {
 }
 
 function setRotation() {
-  controls.autoRotate = false;
+  controls.autoRotate = !controls.autoRotate;
 }
 
 function toggleModal() {
@@ -268,7 +268,7 @@ document
   .getElementById("textColorPicker")
   .addEventListener("change", selectTextColor);
 
-document.getElementById("roteteCard").addEventListener("change", setRotation);
+document.getElementById("rotateCard").addEventListener("change", setRotation);
 
 document.getElementById("confirm").addEventListener("click", toggleModal);
 
