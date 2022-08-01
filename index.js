@@ -27,12 +27,12 @@ camera.position.z = 150;
 
 // CONTROLS
 const controls = new OrbitControls(camera, renderer.domElement);
-// controls.autoRotate = true;
+controls.autoRotate = true;
 controls.autoRotateSpeed = 7;
 
 //LIGHTS
 const spotLight = new THREE.SpotLight(0xffffff);
-spotLight.position.set(0, 30, 20);
+spotLight.position.set(0, 40, 25);
 spotLight.castShadow = true;
 spotLight.shadow.mapSize.width = 1024;
 spotLight.shadow.mapSize.height = 1024;
@@ -41,7 +41,7 @@ spotLight.shadow.camera.far = 4000;
 spotLight.shadow.camera.fov = 70;
 scene.add(spotLight);
 const spotLight2 = new THREE.SpotLight(0xffffff);
-spotLight2.position.set(0, 30, -20);
+spotLight2.position.set(0, -40, -25);
 spotLight2.castShadow = true;
 spotLight2.shadow.mapSize.width = 1024;
 spotLight2.shadow.mapSize.height = 1024;
@@ -90,6 +90,7 @@ function selectCardColor(e) {
   card.children[0].material = new THREE.MeshPhongMaterial({
     color: e.target.value,
   });
+  document.getElementById("colorPicker").value = e.target.value;
 }
 
 function selectTextColor(e) {
@@ -97,6 +98,11 @@ function selectTextColor(e) {
   prevNum.material = new THREE.MeshBasicMaterial({ color: e.target.value });
   prevExp.material = new THREE.MeshBasicMaterial({ color: e.target.value });
   prevCvv.material = new THREE.MeshBasicMaterial({ color: e.target.value });
+  document.getElementById("textColorPicker").value = e.target.value;
+}
+
+function setRotation() {
+  controls.autoRotate = false;
 }
 
 function toggleModal() {
@@ -114,7 +120,7 @@ function toggleModal() {
 
 const floader = new THREE.FontLoader();
 let current;
-function createName(name = "YOUR NAME HERE") {
+function createName(name = "CARDHOLDER NAME") {
   if (current) {
     scene.remove(current);
   }
@@ -261,6 +267,8 @@ document
 document
   .getElementById("textColorPicker")
   .addEventListener("change", selectTextColor);
+
+document.getElementById("roteteCard").addEventListener("change", setRotation);
 
 document.getElementById("confirm").addEventListener("click", toggleModal);
 
